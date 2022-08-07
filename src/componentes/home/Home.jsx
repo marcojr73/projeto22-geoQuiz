@@ -1,11 +1,11 @@
+import { ContainerHome } from "./ContainerHome";
 import { Profile } from "./profile/Profile";
 import { Quizzes } from "./quizzes/Quizzes";
 import { Ranking } from "./ranking/Ranking";
 
 export function Home(){
     return(
-        <>
-            <h1>oi</h1>
+        <ContainerHome>
             <Ranking>
 
             </Ranking>
@@ -15,6 +15,6 @@ export function Home(){
             <Profile>
 
             </Profile>
-        </>
+        </ContainerHome>
     )
 }

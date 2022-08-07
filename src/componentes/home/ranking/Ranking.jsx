@@ -1,9 +1,11 @@
 import { ContainerRanking } from "./ContainerRanking";
+import logo from "../../../assets/images/logo.png"
 
 export function Ranking(){
     return(
         <ContainerRanking>
-            <h1>I am the rank</h1>
+            <img src={logo}/>
+            <h1>The best players of the week</h1>
         </ContainerRanking>
     )
 }
