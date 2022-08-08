@@ -15,7 +15,7 @@ export const ContainerLogin = styled.main`
     }
 
     form{
-        background-color: var(--cor-secundaria);
+        background-color: var(--cor-back);
     }
 
     .title{
@@ -66,7 +66,7 @@ export const ContainerLogin = styled.main`
     }
 
     input{
-        background-color: var(--cor-secundaria);
+        background-color: var(--cor-back);
         width: 500px;
         height: 40px;
         margin: 25px;

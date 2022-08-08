@@ -3,8 +3,19 @@ import mapCity from "../../../assets/images/mapcity.jpeg"
 import flags from "../../../assets/images/flags.jpeg"
 import mapCountry from "../../../assets/images/mapCountry.jpeg"
 import { Quiz } from "./Quizz";
+import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export function Quizzes(){
+
+    const [ level, setLevel ] = useState()
+    const [ quiz, setQuiz ] = useState()
+    const navigate = useNavigate()
+
+    function selectQuiz(){
+        Navigate("/quiz")
+    }
+
     return(
         <ContainerQuizzes>
             <div className="box">
