@@ -1,15 +1,21 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Link } from 'react-router-dom';
-import axios from "axios"
 import { ContainerLogin } from "./ContainerLogin";
+import axiosInstance  from "../../instances/axiosInstance.jsx"
+import logo from "../../assets/images/logo.png"
+
 
 export function SignIn(){
     const [ password, setPassword ] = useState("")
     const [email, setEmail] = useState("")
-    const url = "http://localhost:5000"
+    const url = "/sign-in"
 
     const navigate = useNavigate()
+
+    function togleSignInUp(){
+        navigate("/sign-up")
+    }
+    
 
     async function logInUser(e){
         e.preventDefault()
@@ -19,7 +25,7 @@ export function SignIn(){
             password,
         }
         try {
-            const response = await axios.post(`${url}/sign-in`, data)
+            const response = await axiosInstance.post(url, data)
             localStorage.setItem("token", response.data)
             navigate("/home")
         } catch (error) {
@@ -28,22 +34,39 @@ export function SignIn(){
     }
     return(
         <ContainerLogin>
-            <form onSubmit={logInUser}>
-                <p>Usuário (e-mail)</p>
-                <input  type="text" 
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="E-mail"
-                ></input>
-                <p>Senha</p>
-                <input  type="password" 
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Passsword"
-                ></input>
-                <button type="submit" className="button">Acessar</button>
-                <Link to="/sign-up">Primeiro acesso? Crie sua conta!</Link>
-            </form>
+            <section className="banner">
+                <div className="title">
+                    <h1>GeoQ<span>uiz</span></h1>
+                </div>
+                <img src = {logo}/>
+                <h2>Teste os seus conhecimentos sobre os <br/> mais diversos países do mundo</h2>
+            </section>
+            <section className="form">
+                <div className="togle">
+                    <p id="signin" onClick={togleSignInUp}>Sign-in</p>
+                    <p id="signup" onClick={togleSignInUp}>Sign-up</p>
+                </div>
+                <form onSubmit={logInUser}>
+                    <p id="description">Entre agora e jogue!</p>
+                    <div className="single-input">
+                        <input  type="text" 
+                                id="nome"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                        ></input>
+                        <label>email</label>
+                    </div>
+                    <div className="single-input">
+                        <input  type="password" 
+                                id="sobre   nome"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                        ></input>
+                        <label>senha</label>
+                    </div>
+                    <button type="submit" className="button">Acessar</button>
+                </form>
+            </section>
         </ContainerLogin>
     )
 }
