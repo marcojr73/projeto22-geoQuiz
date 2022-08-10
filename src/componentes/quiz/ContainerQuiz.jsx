@@ -40,5 +40,15 @@ export const ContainerQuiz = styled.main`
         background-color: #FFFFFF;
     }
 
+    .wrong{
+        font-size: 30px;
+        color: red;
+    }
+
+    .hit{
+        font-size: 30px;
+        color: green;
+    }
+
 
 `
