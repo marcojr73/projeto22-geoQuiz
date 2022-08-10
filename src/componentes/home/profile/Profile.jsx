@@ -6,7 +6,7 @@ import axiosInstance from "../../../instances/axiosInstance"
 export function Profile(){
     
     async function getUser(){
-        const response = await axiosInstance.get()
+        // const response = await axiosInstance.get()
 
     } 
 

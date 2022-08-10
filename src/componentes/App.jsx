@@ -5,15 +5,20 @@ import { Home } from "./home/Home";
 
 import "../assets/styles/reset.css"
 import "../assets/styles/style.css"
+import { Quiz } from "./quiz/Quiz";
+import { AuthProvider } from "../provider/authProvider";
 
 export default function App(){
     return(
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<SignIn/>} > </Route>
-                <Route path="/sign-up"element={<SignUp/>} > </Route>
-                <Route path="/home"element={<Home/>} > </Route>
-            </Routes>
-        </BrowserRouter>
+        <AuthProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<SignIn/>} > </Route>
+                    <Route path="/sign-up"element={<SignUp/>} > </Route>
+                    <Route path="/home"element={<Home/>} > </Route>
+                    <Route path="/quiz"element={<Quiz/>} > </Route>
+                </Routes>
+            </BrowserRouter>
+        </AuthProvider>
     )
 }
