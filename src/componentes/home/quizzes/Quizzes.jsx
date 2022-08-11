@@ -2,7 +2,6 @@ import { ContainerQuizzes } from "./ContainerQuizzes";
 import mapCity from "../../../assets/images/mapcity.jpeg"
 import flags from "../../../assets/images/flags.jpeg"
 import mapCountry from "../../../assets/images/mapCountry.jpeg"
-import { Quiz } from "./Quizz";
 import { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import react from "react";

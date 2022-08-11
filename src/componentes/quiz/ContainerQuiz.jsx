@@ -50,5 +50,18 @@ export const ContainerQuiz = styled.main`
         color: green;
     }
 
+    button{
+        color: #FFFFFF;
+        font-size: 17px;
+        width: 150px;
+        height: 45px;
+        background-color: var(--cor-principal);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 15px;
+    }
+
 
 `
