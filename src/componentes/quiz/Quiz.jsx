@@ -10,12 +10,15 @@ import { useNavigate } from "react-router-dom"
 export function Quiz(){
 
     const token = localStorage.getItem("token")
-    const { level, quiz } = react.useContext(authContext)
+    const localLevel = localStorage.getItem("level")
+    const localQuiz = localStorage.getItem("quiz")
     const navigate = useNavigate()
     
     const [ position, setPosition ] = useState(0)
     const [ questions, setQuestions ] = useState([])
     const [ scoreBoard, setScoreBoard ] = useState([])
+    const [ level, setLevel ] = useState(localLevel)
+    const [ quiz, setQuiz ] = useState(localQuiz)
     const [ score, setScore ] = useState(0)
     
     const config = {

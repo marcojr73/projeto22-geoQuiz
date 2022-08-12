@@ -1,37 +1,14 @@
-import { useEffect, useState } from "react";
 import { ContainerProfile } from "./ContainerProfile";
-import axiosInstance from "../../../instances/axiosInstance"
 
-
-export function Profile(){
-    
-    const token = localStorage.getItem("token")
-    const [ dataUser, setDataUser ] = useState([])
-
-    async function getUser(){
-        try {
-            const config = {
-                headers: {
-                    authorization: `Bearer ${token}`
-                }
-            }
-            const response = await axiosInstance.get("/user", config)
-            setDataUser(response.data)
-        } catch (error) {
-            alert(error)
-        }
-    }
-
-    useEffect(()=>{
-        getUser()
-    }, [])
-
+export function Profile({user}){
     return(
+        user !== undefined ?
         <ContainerProfile>
-            <img src={dataUser.picture}/>
-            <h1>Hits: {dataUser.hits}</h1>
-            <h1>Mistakes: {dataUser.mistakes}</h1>
-            <h1>Week score: {dataUser.weekScore}</h1>
+            <img src={user.picture}/>
+            <h1>name: {user.name}</h1>
+            <h1>Hits: {user.hits}</h1>
+            <h1>Mistakes: {user.mistakes}</h1>
         </ContainerProfile>
+        : <></>
     )
 }

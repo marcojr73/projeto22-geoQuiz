@@ -14,8 +14,8 @@ export function Quizzes(){
 
     function selectQuiz(quiz, level){
         
-        setQuiz(quiz)
-        setLevel(level)
+        // setQuiz(quiz)
+        // setLevel(level)
         localStorage.setItem("quiz", quiz)
         localStorage.setItem("level", level)
 
