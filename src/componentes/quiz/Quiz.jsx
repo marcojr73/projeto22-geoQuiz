@@ -5,19 +5,20 @@ import { Header } from "./Header"
 import { ContainerQuiz } from "./ContainerQuiz"
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { AiFillCloseCircle } from 'react-icons/ai'
-import hits from "../../assets/images/hits.png"
-import mistakes from "../../assets/images/mistakes.png"
 import { useNavigate } from "react-router-dom"
 
 export function Quiz(){
 
     const token = localStorage.getItem("token")
-    const { level, quiz } = react.useContext(authContext)
+    const localLevel = localStorage.getItem("level")
+    const localQuiz = localStorage.getItem("quiz")
     const navigate = useNavigate()
     
     const [ position, setPosition ] = useState(0)
     const [ questions, setQuestions ] = useState([])
     const [ scoreBoard, setScoreBoard ] = useState([])
+    const [ level, setLevel ] = useState(localLevel)
+    const [ quiz, setQuiz ] = useState(localQuiz)
     const [ score, setScore ] = useState(0)
     
     const config = {
@@ -27,7 +28,6 @@ export function Quiz(){
     }
 
     async function getQuiz(){
-
         try {
             const response = await axiosInstance.get(`/${quiz}/${level}`, config)
             setQuestions(response.data)
@@ -35,6 +35,10 @@ export function Quiz(){
             console.log(error)
         }
     }
+
+    useEffect(() => {
+        getQuiz()
+    },[])
 
     async function validateQuestion(quizId, answer){
         try {
@@ -52,37 +56,33 @@ export function Quiz(){
         }
     }
 
-    useEffect(() => {
-        getQuiz()
-    },[])
-
     return(
         position < 10 ?
             questions.length > 0 ?
             <>
-                <Header/>
-                <ContainerQuiz>
-                <h1>what is the {quiz}</h1>
-                <section className="single-quiz">
-                    <h2>{questions[position].name}</h2>
-                    <section className="options">
-                        {questions[position].options.map(option => {
-                            return(
-                                <div onClick={()=>validateQuestion(questions[position].id, option)} className="single-option">{option}</div>
-                            )
-                        })}
-                    </section>
-                    <footer>
-                        {scoreBoard.map(e => {
-                            return(
-                                e === true ?
-                                <AiFillCheckCircle className="hit" />
-                                :
-                                <AiFillCloseCircle className="wrong" />
-                            )
-                        })}
-                    </footer>
+            <Header/>
+            <ContainerQuiz>
+            <h1>what is the {quiz}</h1>
+            <section className="single-quiz">
+                <h2>{questions[position].name}</h2>
+                <section className="options">
+                    {questions[position].options.map(option => {
+                        return(
+                            <div onClick={()=>validateQuestion(questions[position].id, option)} className="single-option">{option}</div>
+                        )
+                    })}
                 </section>
+                <footer>
+                    {scoreBoard.map(e => {
+                        return(
+                            e === true ?
+                            <AiFillCheckCircle className="hit" />
+                            :
+                            <AiFillCloseCircle className="wrong" />
+                        )
+                    })}
+                </footer>
+            </section>
             </ContainerQuiz>
             </>: <></>
         :   

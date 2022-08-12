@@ -12,14 +12,16 @@ export const ContainerProfile = styled.section`
 
     h1{
         margin-bottom: 40px;
+        margin: 30px 30px 15px 30px;
+        font-size: 22px;
     }
 
     img{
-        margin-top: 10vh;
         margin-bottom: 5vh;
         width: 250px;
         height: 250px;
         border-radius: 50%;
+        margin-top: 200px;
     }
 
 ` 
