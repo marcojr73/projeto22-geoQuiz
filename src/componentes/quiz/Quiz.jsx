@@ -6,6 +6,7 @@ import { ContainerQuiz } from "./ContainerQuiz"
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { useNavigate } from "react-router-dom"
+import { Question } from "./Question"
 
 export function Quiz(){
 
@@ -64,7 +65,7 @@ export function Quiz(){
             <ContainerQuiz>
             <h1>what is the {quiz}</h1>
             <section className="single-quiz">
-                <h2>{questions[position].name}</h2>
+                <Question name={questions[position].name} />
                 <section className="options">
                     {questions[position].options.map(option => {
                         return(
@@ -80,7 +81,7 @@ export function Quiz(){
                             :
                             <AiFillCloseCircle className="wrong" />
                         )
-                    })}
+                    })} 
                 </footer>
             </section>
             </ContainerQuiz>

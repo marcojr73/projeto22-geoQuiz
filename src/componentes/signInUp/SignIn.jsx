@@ -1,21 +1,29 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { ContainerLogin } from "./ContainerLogin";
 import axiosInstance  from "../../instances/axiosInstance.jsx"
 import logo from "../../assets/images/logo.png"
-
+import { Link } from "react-router-dom";
+import { authContext } from "../../provider/authProvider"
 
 export function SignIn(){
     const [ password, setPassword ] = useState("")
     const [email, setEmail] = useState("")
+    const [ activeEmail, setActiveEmail ] = useState("")
+    const [ activePass, setActivePass ] = useState("")
     const url = "/sign-in"
+    
+    const {signin, setSignin, signup, setSignup} = useContext(authContext)
+    
+    setSignin("sign")
+    setSignup("")
+
+    useEffect(()=>{
+        if(email !== "") setActiveEmail("active")
+        if(password !== "") setActivePass("active")
+    },[email, password])
 
     const navigate = useNavigate()
-
-    function togleSignInUp(){
-        navigate("/sign-up")
-    }
-    
 
     async function logInUser(e){
         e.preventDefault()
@@ -32,6 +40,8 @@ export function SignIn(){
             alert(error.response.data)
         }
     }
+
+    
     return(
         <ContainerLogin>
             <section className="banner">
@@ -39,32 +49,32 @@ export function SignIn(){
                     <h1>GeoQ<span>uiz</span></h1>
                 </div>
                 <img src = {logo}/>
-                <h2>Teste os seus conhecimentos sobre os <br/> mais diversos países do mundo</h2>
+                <h2>test your knowledge about the<br/> geography of countries </h2>
             </section>
             <section className="form">
                 <div className="togle">
-                    <p id="signin" onClick={togleSignInUp}>Sign-in</p>
-                    <p id="signup" onClick={togleSignInUp}>Sign-up</p>
+                    <Link to="/" className={signin}>Sign-in</Link>
+                    <Link to="/sign-up" className={signup} >Sign-up</Link>
                 </div>
                 <form onSubmit={logInUser}>
-                    <p id="description">Entre agora e jogue!</p>
+                    <p id="description">enter and play now!</p>
                     <div className="single-input">
                         <input  type="text" 
                                 id="nome"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                         ></input>
-                        <label>email</label>
+                        <label className={activeEmail}>email</label>
                     </div>
                     <div className="single-input">
                         <input  type="password" 
-                                id="sobre   nome"
+                                id="sobrenome"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                         ></input>
-                        <label>senha</label>
+                        <label className={activePass}>senha</label>
                     </div>
-                    <button type="submit" className="button">Acessar</button>
+                    <button type="submit" className="button">Log In</button>
                 </form>
             </section>
         </ContainerLogin>

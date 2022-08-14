@@ -7,7 +7,7 @@ export function Ranking({ranking}){
         ranking !== undefined ?
         <ContainerRanking>
             <GiLaurelsTrophy className="podium"/>
-            <h1>The best players of the week</h1>
+            <h1>The best players of the day</h1>
             {ranking.map((rank, index) => {
                 return (
                     <ul>

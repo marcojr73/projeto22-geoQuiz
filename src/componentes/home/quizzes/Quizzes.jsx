@@ -8,14 +8,11 @@ import react from "react";
 import { authContext } from "../../../provider/authProvider";
 
 export function Quizzes(){
-    const { setQuiz, setLevel } = react.useContext(authContext)
 
     const navigate = useNavigate()
 
     function selectQuiz(quiz, level){
         
-        // setQuiz(quiz)
-        // setLevel(level)
         localStorage.setItem("quiz", quiz)
         localStorage.setItem("level", level)
 

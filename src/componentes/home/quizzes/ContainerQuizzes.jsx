@@ -8,7 +8,7 @@ export const ContainerQuizzes = styled.main`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 15vh;
+    margin-top: 25vh;
 
     h1{
         text-align: center;
