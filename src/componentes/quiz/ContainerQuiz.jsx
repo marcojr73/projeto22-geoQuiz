@@ -6,7 +6,7 @@ export const ContainerQuiz = styled.main`
     align-items: center;
 
     h1{
-        margin-top: 5%;
+        margin-top: 50px;
         font-size: 40px;
     }
 
@@ -19,9 +19,10 @@ export const ContainerQuiz = styled.main`
         flex-direction: column;
     }
     .single-quiz{
-        margin-top: 5%;
+        margin-top: 50px;
         width: 500px;
-        height: 500px;
+        min-height: 500px;
+        margin-bottom: 50px;
         background-color: var(--cor-secundaria);
         border-radius: 25px;
         align-items: center;
@@ -40,13 +41,21 @@ export const ContainerQuiz = styled.main`
         background-color: #FFFFFF;
     }
 
+    footer{
+        width: 80%;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
     .wrong{
-        font-size: 30px;
+        font-size: 40px;
         color: red;
     }
 
     .hit{
-        font-size: 30px;
+        font-size: 40px;
         color: green;
     }
 
@@ -61,6 +70,12 @@ export const ContainerQuiz = styled.main`
         align-items: center;
         border: none;
         border-radius: 15px;
+    }
+
+    .map{
+        width: 450px;
+        height: 450px;
+        margin: 15px 0px 15px 0px;
     }
 
 

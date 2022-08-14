@@ -34,24 +34,26 @@ export const ContainerLogin = styled.main`
 
     .togle{
         position: absolute;
-        font-size: 25px;
-        padding: 25px;
         top: 15px;
         right: 15px; 
+        background-color: gray;
+    }
+    
+    .togle, .sign, a{
+        font-size: 25px;
+        height: 50px;
+        width: 250px;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 30px;
+        color: #000000;
     }
     
-    #signin{
-        background-color: red;
-        border-radius: 30px;
+    .sign{
+        background-color: var(--cor-principal);
     }
 
-    #signup{
-        background-color: blue;
-        border-radius: 30px;
-    }
     .single-input{
         position: relative;
     }
@@ -82,6 +84,14 @@ export const ContainerLogin = styled.main`
     }
 
     input:focus ~ label{
+        transform: translateY(-25px);
+    }
+
+    .active{
+        transform: translateY(-25px);
+    }
+
+    label:active{
         transform: translateY(-25px);
     }
 

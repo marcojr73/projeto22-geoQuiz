@@ -4,3 +4,8 @@
     --cor-back: #F1E7E7;
     font-family: 'Coustard', serif;
 }
+
+*{
+    text-decoration: none;
+    box-sizing: border-box;
+}
