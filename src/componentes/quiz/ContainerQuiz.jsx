@@ -12,6 +12,11 @@ export const ContainerQuiz = styled.main`
 
     h2{
         font-size: 30px;
+        margin: 30px 0px 30px 0px;
+    }
+
+    .flag{
+        font-size: 75px;
     }
 
     .options, .single-quiz{
@@ -73,9 +78,21 @@ export const ContainerQuiz = styled.main`
     }
 
     .map{
-        width: 450px;
-        height: 450px;
+        width: 400px;
+        height: 350px;
         margin: 15px 0px 15px 0px;
+    }
+
+    @media only screen and (max-width: 914px){
+        .single-quiz{
+            width: 85vw;
+        }
+        .single-option{
+            width: 80vw;
+        }
+        h1{
+            font-size: 35px;
+        }
     }
 
 

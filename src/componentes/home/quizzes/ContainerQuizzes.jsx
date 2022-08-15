@@ -50,4 +50,14 @@ export const ContainerQuizzes = styled.main`
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
+
+    @media only screen and (max-width: 914px){
+        margin-top: 15vh;
+        .box{
+            width: 80vw;
+        }
+        .settings{
+            font-size: 15px;
+        }
+    }
 ` 

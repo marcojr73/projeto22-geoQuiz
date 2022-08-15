@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import axiosInstance from "../../instances/axiosInstance";
+import { authContext } from "../../provider/authProvider";
 import { Header } from "../quiz/Header";
 import { ContainerHome } from "./ContainerHome";
 import { Profile } from "./profile/Profile";
@@ -9,7 +11,7 @@ import { Ranking } from "./ranking/Ranking";
 export function Home(){
 
     const token = localStorage.getItem("token")
-    const [ data, setData ] = useState([])
+    const {data, setData} = useContext(authContext)
 
     async function getWeekScore(){
         const config = {
@@ -19,18 +21,19 @@ export function Home(){
         }
         try {
             const response = await axiosInstance.get("/users/ranking", config)
+            localStorage.setItem("picture", response.data.user.picture)
+            console.log(response.data.user.picture)
             setData(response.data)
         } catch (error) {
-            console.log(error)
+            toast.error(error.response.data)
         }
     }
 
     useEffect(()=>{
         getWeekScore()
     },[])
-
     return(
-        data !== undefined ?
+        data.user !== undefined ?
         <ContainerHome>
             <Header/>
             <Ranking ranking={data.weekScore}>

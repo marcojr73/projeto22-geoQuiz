@@ -1,14 +1,16 @@
 import styled from "styled-components"
 
 export const ContainerRanking = styled.section`
-    position: absolute;
-    left: 0;
-    background-color: var(--cor-secundaria);
-    width: 25vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    aside{
+        position: absolute;
+        left: 0;
+        background-color: var(--cor-secundaria);
+        width: 25vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     
     ul{
         display: flex;
@@ -28,5 +30,24 @@ export const ContainerRanking = styled.section`
     h1{
         font-size: 25px;
         margin-bottom: 20px;
+    }
+
+    @media only screen and (max-width: 914px){
+        aside{
+            display: none;
+        }
+
+        .visible{
+            display: flex;
+            margin-top: 100px;
+            height: 100vh;
+            width: 100vw;
+            z-index: 1;
+
+            .podium{
+                margin-top: 50px;
+                margin-bottom: 35px;
+            }
+        }
     }
 ` 

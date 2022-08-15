@@ -5,12 +5,17 @@ import axiosInstance  from "../../instances/axiosInstance.jsx"
 import logo from "../../assets/images/logo.png"
 import { Link } from "react-router-dom";
 import { authContext } from "../../provider/authProvider"
+import Loader from "./Loader";
+
+import { toast } from 'react-toastify';
+
 
 export function SignIn(){
     const [ password, setPassword ] = useState("")
     const [email, setEmail] = useState("")
     const [ activeEmail, setActiveEmail ] = useState("")
     const [ activePass, setActivePass ] = useState("")
+    const [ loader, setLoader ] = useState("Log In")
     const url = "/sign-in"
     
     const {signin, setSignin, signup, setSignup} = useContext(authContext)
@@ -32,12 +37,16 @@ export function SignIn(){
             email,
             password,
         }
+
+        setLoader(<Loader/>)
+
         try {
             const response = await axiosInstance.post(url, data)
             localStorage.setItem("token", response.data)
             navigate("/home")
         } catch (error) {
-            alert(error.response.data)
+            setLoader("Log in")
+            toast.error(error.response.data)
         }
     }
 
@@ -60,7 +69,7 @@ export function SignIn(){
                     <p id="description">enter and play now!</p>
                     <div className="single-input">
                         <input  type="text" 
-                                id="nome"
+                                disabled={loader !== "Log In" ? true : false}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                         ></input>
@@ -68,13 +77,13 @@ export function SignIn(){
                     </div>
                     <div className="single-input">
                         <input  type="password" 
-                                id="sobrenome"
+                                disabled={loader !== "Log In" ? true : false}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                         ></input>
                         <label className={activePass}>senha</label>
                     </div>
-                    <button type="submit" className="button">Log In</button>
+                    <button type="submit" className="button">{loader}</button>
                 </form>
             </section>
         </ContainerLogin>

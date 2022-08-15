@@ -7,6 +7,7 @@ import { AiFillCheckCircle } from 'react-icons/ai';
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { useNavigate } from "react-router-dom"
 import { Question } from "./Question"
+import { toast } from "react-toastify"
 
 export function Quiz(){
 
@@ -53,7 +54,7 @@ export function Quiz(){
                 setScoreBoard([...scoreBoard, false])
             }
         } catch (error) {
-            alert(error)
+            toast.error(error.response.data)
         }
     }
 
@@ -65,7 +66,7 @@ export function Quiz(){
             <ContainerQuiz>
             <h1>what is the {quiz}</h1>
             <section className="single-quiz">
-                <Question name={questions[position].name} />
+                <Question name={questions[position].name} quiz={quiz} />
                 <section className="options">
                     {questions[position].options.map(option => {
                         return(

@@ -4,15 +4,18 @@ export const authContext = react.createContext({})
 
 export const AuthProvider = (props) => {
 
-    const [ level, setLevel ] = useState("pudim")
-    const [ quiz, setQuiz ] = useState()
     const [signin, setSignin] = useState("")
     const [signup, setSignup] = useState("")
+    const [ data, setData ] = useState({})
+    const [ viewRank, setViewRank ] = useState("")
+    const [ viewProfile, setViewProfile ] = useState("")
     
 
     return(
-        <authContext.Provider value={{level,setLevel, quiz, setQuiz, signin, setSignin, signup, setSignup}}>
+        <authContext.Provider value={{signin, setSignin, signup, setSignup, 
+                                      data, setData, viewRank, setViewRank, 
+                                      viewProfile, setViewProfile}}>
             {props.children}
-        </authContext.Provider>
+        </authContext.Provider>         
     )
 }

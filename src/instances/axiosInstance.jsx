@@ -5,5 +5,4 @@ const axiosInstance = axios.create({
     baseURL: "https://geo-quiz-api.herokuapp.com"
 })
 
-
-export default axiosInstance;
+export default axiosInstance

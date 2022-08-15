@@ -97,7 +97,7 @@ export const ContainerLogin = styled.main`
 
     #description{
         font-size: 30px;
-        margin-bottom: 50px;
+        margin-bottom: 7%;
         color: #363131;
     }
 
@@ -109,6 +109,48 @@ export const ContainerLogin = styled.main`
         background-color: var(--cor-principal);
         border-radius: 20px;
         border: 0px;
+    }
+
+    @media only screen and (max-width: 914px){
+        flex-direction: column;
+
+        .banner{
+            width: 100vw;
+            height: 50vh;
+        }
+
+        img{
+            width: 100px;
+            margin: 25px 0px 25px 0px;
+        }
+
+        .title{
+            font-size: 50px;
+        }
+
+        form{
+            width: 100vw;
+            height: 50vh;
+        }
+
+        input{
+            width: 75vw;
+            margin: 10px;
+        }
+
+        button{
+            width: 75vw;
+        }
+
+        .sign{
+            height: 40px;
+            margin: 5px 5px 5px 5px;
+        }
+
+        label{
+            bottom: 20px;
+            left: 15px;
+        }
     }
     
 `

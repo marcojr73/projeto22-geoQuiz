@@ -7,6 +7,8 @@ import "../assets/styles/reset.css"
 import "../assets/styles/style.css"
 import { Quiz } from "./quiz/Quiz";
 import { AuthProvider } from "../provider/authProvider";
+import { Toastify } from "../toasts/Toastify";
+
 
 export default function App(){
     return(
@@ -19,6 +21,7 @@ export default function App(){
                     <Route path="/quiz"element={<Quiz/>} > </Route>
                 </Routes>
             </BrowserRouter>
+            <Toastify/>
         </AuthProvider>
     )
 }

@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom"
 import axiosInstance from "../../instances/axiosInstance";
 import { ContainerLogin } from "./ContainerLogin"
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 
 import logo from "../../assets/images/logo.png"
 import { authContext } from "../../provider/authProvider";
+import { toast } from "react-toastify";
 
 export function SignUp(){
     const navigate = useNavigate()
@@ -20,6 +22,7 @@ export function SignUp(){
     const [ activePass, setActivePass ] = useState("")
     const [ activeConfirmPass, setActiveConfirmPass ] = useState("")
     const [ activePic, setActivePic ] = useState("")
+    const [ loader, setLoader ] = useState("Create")
     
     const url = "/sign-up"
 
@@ -40,10 +43,6 @@ export function SignUp(){
     async function logInUser(e){
         e.preventDefault()
 
-        if(password !== confirmPassword) {
-            alert("password not equal")
-        }
-
         const data = {
             name,
             email,
@@ -51,13 +50,14 @@ export function SignUp(){
             confirmPassword,
             picture
         }
+        
         try {
-            const response = await axiosInstance.post(url, data)
-            console.log(response.data)
+            setLoader(<Loader/>)
+            await axiosInstance.post(url, data)
             navigate("/")
         } catch (error) {
-            console.log(error)
-            alert(error.response.data)
+            setLoader("Create")
+            toast.error(error.response.data)
         }
     }
     return(
@@ -78,6 +78,7 @@ export function SignUp(){
                     <p id="description">Create your account!</p>
                     <div className="single-input">
                         <input  type="text" 
+                                disabled={loader !== "Create" ? true : false}
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                         ></input>
@@ -85,6 +86,7 @@ export function SignUp(){
                     </div>
                     <div className="single-input">
                         <input  type="text" 
+                                disabled={loader !== "Create" ? true : false}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                         ></input>
@@ -92,6 +94,7 @@ export function SignUp(){
                     </div>
                     <div className="single-input">
                         <input  type="password" 
+                                disabled={loader !== "Create" ? true : false}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                         ></input>
@@ -99,6 +102,7 @@ export function SignUp(){
                     </div>
                     <div className="single-input">
                         <input  type="password" 
+                                disabled={loader !== "Create" ? true : false}
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                         ></input>
@@ -106,11 +110,12 @@ export function SignUp(){
                     </div>
                     <div className="single-input">
                         <input  type="text" 
+                                disabled={loader !== "Create" ? true : false}
                                 onChange={(e)=>setpicture(e.target.value)} 
                         ></input>
-                        <label className={activePic}>Password</label>
+                        <label className={activePic}>Picture</label>
                     </div>
-                    <button type="submit" className="button">Create</button>
+                    <button type="submit" className="button">{loader}</button>
                 </form>
             </section>
         </ContainerLogin>
