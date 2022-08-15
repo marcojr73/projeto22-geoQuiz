@@ -69,7 +69,6 @@ export function SignIn(){
                     <p id="description">enter and play now!</p>
                     <div className="single-input">
                         <input  type="text" 
-                                disabled={loader !== "Log In" ? true : false}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                         ></input>
@@ -77,7 +76,6 @@ export function SignIn(){
                     </div>
                     <div className="single-input">
                         <input  type="password" 
-                                disabled={loader !== "Log In" ? true : false}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                         ></input>
