@@ -60,4 +60,15 @@ export const ContainerQuizzes = styled.main`
             font-size: 15px;
         }
     }
+
+    @media only screen and (max-width: 514px){
+        .button{
+            width: 120px;
+        }
+        .box{
+            margin-top: 20px;
+            margin-bottom: 0px;
+            height: 165px;
+        }
+    }
 ` 

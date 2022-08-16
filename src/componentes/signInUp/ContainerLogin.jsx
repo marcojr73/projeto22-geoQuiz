@@ -152,5 +152,33 @@ export const ContainerLogin = styled.main`
             left: 15px;
         }
     }
+
+    @media only screen and (max-width: 514px){
+        .title{
+            font-size: 30px;
+            margin-top: 80px;
+        }
+        img{
+            width: 100px;
+            margin: 5px 0px 5px 0px;
+        }
+        h2{
+            display: none;
+        }
+        button{
+            margin-top: 20px;
+        }
+        .banner{
+            height: 35vh;
+        }
+        form{
+            height: 65vh;
+        }
+        #description{
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
     
 `

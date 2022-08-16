@@ -95,5 +95,13 @@ export const ContainerQuiz = styled.main`
         }
     }
 
-
+    @media only screen and (max-width: 514px){
+        .map{
+            width: 300px;
+        }
+        
+        h1{
+            font-size: 30px;
+        }
+    }
 `
