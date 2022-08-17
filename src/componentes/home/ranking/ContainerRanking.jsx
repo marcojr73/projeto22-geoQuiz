@@ -49,5 +49,8 @@ export const ContainerRanking = styled.section`
                 margin-bottom: 35px;
             }
         }
+        p{
+            font-size: 18px;
+        }
     }
 ` 

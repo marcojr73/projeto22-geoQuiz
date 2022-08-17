@@ -8,6 +8,7 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 import { useNavigate } from "react-router-dom"
 import { Question } from "./Question"
 import { toast } from "react-toastify"
+import LoaderHome from "../../utils/LoaderHome"
 
 export function Quiz(){
 
@@ -86,7 +87,7 @@ export function Quiz(){
                 </footer>
             </section>
             </ContainerQuiz>
-            </>: <></>
+            </>: <LoaderHome></LoaderHome>
         :   
         <>
         <Header/>
