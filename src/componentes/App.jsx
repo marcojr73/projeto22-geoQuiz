@@ -7,7 +7,7 @@ import "../assets/styles/reset.css"
 import "../assets/styles/style.css"
 import { Quiz } from "./quiz/Quiz";
 import { AuthProvider } from "../provider/authProvider";
-import { Toastify } from "../toasts/Toastify";
+import { Toastify } from "../utils/Toastify";
 
 
 export default function App(){

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axiosInstance from "../../instances/axiosInstance";
 import { authContext } from "../../provider/authProvider";
+import LoaderHome from "../../utils/LoaderHome";
 import { Header } from "../quiz/Header";
 import { ContainerHome } from "./ContainerHome";
 import { Profile } from "./profile/Profile";
@@ -46,6 +47,6 @@ export function Home(){
 
             </Profile>
         </ContainerHome>
-        : <></>
+        :<LoaderHome/>
     )
 }

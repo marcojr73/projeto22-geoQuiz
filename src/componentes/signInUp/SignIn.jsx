@@ -5,7 +5,7 @@ import axiosInstance  from "../../instances/axiosInstance.jsx"
 import logo from "../../assets/images/logo.png"
 import { Link } from "react-router-dom";
 import { authContext } from "../../provider/authProvider"
-import Loader from "./Loader";
+import Loader from "../../utils/LoaderButton";
 
 import { toast } from 'react-toastify';
 

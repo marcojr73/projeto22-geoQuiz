@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import axiosInstance from "../../instances/axiosInstance";
 import { ContainerLogin } from "./ContainerLogin"
 import { Link } from "react-router-dom";
-import Loader from "./Loader";
+import Loader from "../../utils/LoaderButton";
 
 import logo from "../../assets/images/logo.png"
 import { authContext } from "../../provider/authProvider";
