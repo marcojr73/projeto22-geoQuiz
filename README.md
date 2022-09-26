@@ -16,6 +16,16 @@ Aos 5 anos de idade Magnus Carlsen memorizou a superfície, população e as cap
 
 ***
 
+## Demonstração
+
+<p align="center">
+   <img width=100 src="./src/assets/images/app.gif"/>
+   <img width=100 src="./src/assets/images/screen1.png"/>
+   <img width=100 src="./src/assets/images/screen2.png"/>
+   <img width=100 src="./src/assets/images/screen3.png"/>
+   <img width=100 src="./src/assets/images/screen4.png"/>
+</p>
+
 ## Como usar
 
 Instale meu projeto e suas dependências
