@@ -51,6 +51,7 @@ Instale meu projeto e suas dependências
 - Toasts (react-toastify) 
 - styled-Componentes
 - Sendgrid
+- Display responsivo
 
 ***
     
