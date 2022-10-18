@@ -20,6 +20,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: red;
 `
