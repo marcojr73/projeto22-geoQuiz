@@ -42,6 +42,7 @@ export function SignIn(){
 
         try {
             const response = await axiosInstance.post(url, data)
+            console.log("response")
             localStorage.setItem("token", response.data)
             navigate("/home")
         } catch (error) {

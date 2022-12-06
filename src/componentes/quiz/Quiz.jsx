@@ -1,5 +1,4 @@
-import react, { useEffect, useState } from "react"
-import { authContext } from "../../provider/authProvider"
+import { useEffect, useState } from "react"
 import axiosInstance from "../../instances/axiosInstance"
 import { Header } from "./Header"
 import { ContainerQuiz } from "./ContainerQuiz"

@@ -11,7 +11,7 @@ export function Question({name, quiz}){
     }
     if(quiz === "territories"){
         return(
-            <img className="map" src={name}/>
+            <img className="map" src={name} alt={name}/>
         )
     } 
 }
