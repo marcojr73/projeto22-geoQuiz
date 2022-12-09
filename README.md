@@ -13,8 +13,8 @@ Aos 5 anos de idade Magnus Carlsen memorizou a superfície, população e as cap
 - No total foram 60 territórios, 164 capitais de países e 247 bandeiras cadastradas no banco de dados
 
 - [veja meu deploy na Vercel aqui](https://projeto22-geo-quiz.vercel.app/)
-- [veja meu repositório back end desta aplicação aqui](https://github.com/marcojr73/Geo-Quiz-flutter)
-- [veja meu repositório mobile desta aplicação aqui](https://projeto22-geo-quiz.vercel.app/)
+- [veja meu repositório back end desta aplicação aqui](https://github.com/marcojr73/projeto22-geoQuiz-API)
+- [veja meu repositório mobile desta aplicação aqui](https://github.com/marcojr73/Geo-Quiz-flutter)
 
 ***
 
