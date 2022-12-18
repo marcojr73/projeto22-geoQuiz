@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { ContainerLogin } from "./ContainerLogin";
-import axiosInstance  from "../../instances/axiosInstance.jsx"
+import axiosInstance from "../../instances/axiosInstance.jsx"
 import logo from "../../assets/images/logo.png"
 import { Link } from "react-router-dom";
 import { authContext } from "../../provider/authProvider"
@@ -10,27 +10,27 @@ import Loader from "../../utils/LoaderButton";
 import { toast } from 'react-toastify';
 
 
-export function SignIn(){
-    const [ password, setPassword ] = useState("")
+export function SignIn() {
+    const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
-    const [ activeEmail, setActiveEmail ] = useState("")
-    const [ activePass, setActivePass ] = useState("")
-    const [ loader, setLoader ] = useState("Log In")
+    const [activeEmail, setActiveEmail] = useState("")
+    const [activePass, setActivePass] = useState("")
+    const [loader, setLoader] = useState("Log In")
     const url = "/sign-in"
-    
-    const {signin, setSignin, signup, setSignup} = useContext(authContext)
-    
+
+    const { signin, setSignin, signup, setSignup } = useContext(authContext)
+
     setSignin("sign")
     setSignup("")
 
-    useEffect(()=>{
-        if(email !== "") setActiveEmail("active")
-        if(password !== "") setActivePass("active")
-    },[email, password])
+    useEffect(() => {
+        if (email !== "") setActiveEmail("active")
+        if (password !== "") setActivePass("active")
+    }, [email, password])
 
     const navigate = useNavigate()
 
-    async function logInUser(e){
+    async function logInUser(e) {
         e.preventDefault()
 
         const data = {
@@ -38,7 +38,7 @@ export function SignIn(){
             password,
         }
 
-        setLoader(<Loader/>)
+        setLoader(<Loader />)
 
         try {
             const response = await axiosInstance.post(url, data)
@@ -51,15 +51,15 @@ export function SignIn(){
         }
     }
 
-    
-    return(
+
+    return (
         <ContainerLogin>
             <section className="banner">
                 <div className="title">
                     <h1>GeoQ<span>uiz</span></h1>
                 </div>
-                <img src = {logo}/>
-                <h2>test your knowledge about the<br/> geography of countries </h2>
+                <img src={logo} />
+                <h2>test your knowledge about the<br /> geography of countries </h2>
             </section>
             <section className="form">
                 <div className="togle">
@@ -69,16 +69,18 @@ export function SignIn(){
                 <form onSubmit={logInUser}>
                     <p id="description">enter and play now!</p>
                     <div className="single-input">
-                        <input  type="text" 
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                        <input type="text"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         ></input>
                         <label className={activeEmail}>email</label>
                     </div>
                     <div className="single-input">
-                        <input  type="password" 
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                        <input type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         ></input>
                         <label className={activePass}>senha</label>
                     </div>

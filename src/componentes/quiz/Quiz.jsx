@@ -64,7 +64,7 @@ export function Quiz(){
             <>
             <Header/>
             <ContainerQuiz>
-            <h1>what is the {quiz}</h1>
+            <h1 id="title">what is the {quiz}</h1>
             <section className="single-quiz">
                 <Question name={questions[position].name} quiz={quiz} />
                 <section className="options">
@@ -93,8 +93,8 @@ export function Quiz(){
         <ContainerQuiz>
         <h1>Congratulations</h1>
         <section className="single-quiz">
-            <h2>you got it right {score}/10</h2>
-            <button onClick={()=> navigate("/home")}>Back to home</button>
+            <h2 id="result">you got it right {score}/10</h2>
+            <button id="finish" onClick={()=> navigate("/home")}>Back to home</button>
             <footer>
                 {scoreBoard.map(e => {
                     return(

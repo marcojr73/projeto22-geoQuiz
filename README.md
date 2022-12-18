@@ -29,6 +29,8 @@ Aos 5 anos de idade Magnus Carlsen memorizou a superfície, população e as cap
    <img width=225 src="./src/assets/images/screen5.png"/>
 </p>
 
+***
+
 ## Como usar
 
 Instale meu projeto e suas dependências
@@ -45,6 +47,29 @@ Instale meu projeto e suas dependências
 
 ***
 
+## Testes
+
+```bash
+  npm run cypress
+```
+
+- E2E testing 
+- start E2E testing in electron 
+- run cypress/e2e/integration/tests.cy.js
+
+***
+
+## Execute com o docker
+
+```bash
+  npm run docker:build
+  npm run docker:run
+```
+
+- A aplicação estará disponível na porta 3000
+
+***
+
 ##	 Tecnologias e Conceitos
 
 - React
@@ -54,6 +79,8 @@ Instale meu projeto e suas dependências
 - styled-Componentes
 - Sendgrid
 - Display responsivo
+- Cypress
+- Docker
 
 ***
     
